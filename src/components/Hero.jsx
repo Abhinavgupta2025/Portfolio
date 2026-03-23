@@ -1,0 +1,104 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const Hero = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  return (
+    <section 
+      id="home" 
+      className="flex items-center justify-center min-h-[90vh] text-left px-6 pt-20 relative overflow-hidden"
+    >
+      {/* Subtle Heading Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="max-w-5xl w-full"
+      >
+        <div className="flex items-start gap-16 mb-8">
+          <div className="flex-1">
+            <motion.h1 
+              variants={itemVariants}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6"
+            >
+              <span className="text-gradient">
+                Hi, I'm Abhinav Gupta
+              </span>
+            </motion.h1>
+
+            <motion.p 
+              variants={itemVariants}
+              className="text-xl md:text-3xl text-[#a1a1aa] mb-6 font-medium tracking-tight"
+            >
+              Full Stack Developer
+            </motion.p>
+
+            <motion.div 
+              variants={itemVariants}
+              className="text-[#71717a] text-lg md:text-xl max-w-2xl mb-12 leading-relaxed"
+            >
+              I build scalable, high-performance web applications with a focus on precision and minimalist design.
+            </motion.div>
+
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-start gap-6"
+            >
+              <a 
+                href="#projects" 
+                className="w-full sm:w-auto bg-white text-black px-12 py-4 rounded-full font-bold hover:bg-[#f4f4f5] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                View Work
+              </a>
+              <a 
+                href="#contact" 
+                className="w-full sm:w-auto bg-transparent border border-white/10 text-white px-12 py-4 rounded-full font-bold hover:bg-white/5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Contact Me
+              </a>
+            </motion.div>
+          </div>
+
+          <motion.div
+            variants={itemVariants}
+            className="relative flex-shrink-0 ml-8"
+          >
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#a1a1aa] shadow-[0_0_30px_rgba(161,161,170,0.5)]">
+              <img 
+                src="/img.jpeg" 
+                alt="Abhinav Gupta" 
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;

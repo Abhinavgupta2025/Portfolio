@@ -1,0 +1,30 @@
+import React from 'react';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="w-full bg-[#050505] border-t border-white/5 py-12 mt-20">
+      <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl">
+        <div className="text-[#52525b] text-[10px] font-bold tracking-[0.2em] uppercase">
+          &copy; {currentYear} Abhinav Gupta. Built with precision.
+        </div>
+        
+        <div className="flex gap-8">
+          <a href="https://github.com/Abhinavgupta2025" target="_blank" rel="noreferrer" className="text-[#52525b] hover:text-white transition-all duration-300 transform hover:scale-110">
+            <FaGithub size={18} />
+          </a>
+          <a href="https://www.linkedin.com/in/abhi1878/" target="_blank" rel="noreferrer" className="text-[#52525b] hover:text-white transition-all duration-300 transform hover:scale-110">
+            <FaLinkedin size={18} />
+          </a>
+          <a href="mailto:abhinavgupta555251@gmail.com" className="text-[#52525b] hover:text-white transition-all duration-300 transform hover:scale-110">
+            <FaEnvelope size={18} />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
